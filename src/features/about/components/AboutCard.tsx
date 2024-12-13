@@ -12,9 +12,10 @@ import { cn } from '@/shared/utils/cn';
  * - Адаптивная типографика
  * - Акцентная первая буква заголовка (оранжевая, увеличенная)
  */
-const AboutCard = ({ title, description, imageKey, stickers, className, index }: AboutCardProps) => {
+const AboutCard = ({ title: { bold, rest }, content, imageKey, stickers = [], className, index }: AboutCardProps) => {
   // Выделяем первую букву для стилизации
-  const [firstLetter, ...restTitle] = title;
+  const firstLetter = bold.charAt(0);
+  const restTitle = bold.slice(1) + rest;
 
   return (
     // Основной контейнер карточки
@@ -39,7 +40,7 @@ const AboutCard = ({ title, description, imageKey, stickers, className, index }:
           stickers={stickers}
           imageProps={{
             src: `/cards/${imageKey}.png`,
-            alt: title,
+            alt: bold,
             fill: true,
             style: { objectFit: 'cover', borderRadius: '20px' }
           }}
@@ -64,7 +65,7 @@ const AboutCard = ({ title, description, imageKey, stickers, className, index }:
           - mt-4: отступ сверху 1rem (16px)
           - text-base md:text-lg lg:text-xl: адаптивный размер текста
           - text-gray-600: серый цвет текста */}
-      <p className="mt-4 text-base text-gray-600 md:text-lg lg:text-xl">{description}</p>
+      <p className="mt-4 text-base text-gray-600 md:text-lg lg:text-xl">{content}</p>
     </div>
   );
 };

@@ -90,22 +90,6 @@ export const transitions: TransitionConfig = {
       className: 'absolute bottom-0 w-full'
     }
   },
-  advantages: {
-    top: {
-      image: '/transitions/top.png',
-      backgroundColor: 'black',
-      height: 80,
-      flip: false,
-      className: 'absolute top-0 w-full'
-    },
-    bottom: {
-      image: '/transitions/bottom.png',
-      backgroundColor: 'black',
-      height: 80,
-      flip: false,
-      className: 'absolute bottom-0 w-full'
-    }
-  },
   contacts: {
     top: {
       image: '/transitions/top.png',

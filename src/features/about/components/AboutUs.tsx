@@ -11,6 +11,7 @@ import SectionTitle from '@/shared/components/SectionTitle';
 import Photos from '@/components/Photos';
 import { aboutStyles } from '../styles';
 import { aboutConfig } from '../config';
+import { type AboutImageKey, type CardImage } from '@/shared/types/stickers';
 
 const AboutUs = () => {
   return (
@@ -257,7 +258,7 @@ const AboutUs = () => {
             {/* Info cards */}
             <div className={aboutStyles.cardsGrid}>
               {aboutConfig.cards.map((card, index) => {
-                const imageConfig = defaultStickers.aboutImages?.[card.imageKey];
+                const imageConfig = (defaultStickers.aboutImages as Record<AboutImageKey, CardImage>)?.[card.imageKey as AboutImageKey];
                 
                 if (!imageConfig?.src) return null;
 

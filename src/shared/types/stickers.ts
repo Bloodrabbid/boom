@@ -1,17 +1,20 @@
-import { type MotionValue } from 'framer-motion';
+import { type CustomValueType, type Easing } from 'framer-motion';
+
+type AnimationValue = string | number | number[] | CustomValueType | (string | number | CustomValueType | undefined)[] | [null, ...(string | number | CustomValueType | undefined)[]];
+type RepeatType = 'loop' | 'reverse' | 'mirror';
 
 export interface StickerAnimation {
   animate: {
-    x?: number[];
-    y?: number[];
-    rotate?: number[];
-    scale?: number[];
+    x?: AnimationValue;
+    y?: AnimationValue;
+    rotate?: AnimationValue;
+    scale?: AnimationValue;
   };
   transition: {
-    duration: number;
-    repeat: number;
-    repeatType: 'loop' | 'reverse' | 'mirror';
-    ease: string;
+    duration?: number;
+    repeat?: number;
+    repeatType?: RepeatType;
+    ease?: Easing | Easing[];
   };
 }
 
@@ -47,4 +50,16 @@ export interface SectionStickers {
   hero: Sticker[];
   advantages: Sticker[];
   reviews: Sticker[];
+  aboutImages?: Sticker[];
 }
+
+export interface CardImage {
+  src: string;
+  alt: string;
+}
+
+export type AboutImageKey = 'possibilities' | 'learning' | 'music';
+
+export type AboutImages = {
+  [K in AboutImageKey]: CardImage;
+};

@@ -1,0 +1,6 @@
+export { ScheduleIcon } from './schedule'
+export { IndividualIcon } from './individual'
+export { EquipmentIcon } from './equipment'
+export { TeachersIcon } from './teachers'
+export { LocationIcon } from './location'
+export { EventsIcon } from './events'

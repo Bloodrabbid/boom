@@ -32,38 +32,42 @@ const AdvantagesSection = () => {
     // - overflow-hidden: скрывает выходящие за пределы элементы
     <section className="py-[64px] bg-black relative overflow-hidden" id="advantages">
       {/* Top transition - верхний декоративный элемент перехода */}
-      <div
-        className={transitions.advantages.top.className}
-        style={{
-          height: transitions.advantages.top.height, // Высота верхнего перехода
-          backgroundColor: transitions.advantages.top.backgroundColor // Цвет фона перехода
-        }}
-      >
-        <Image
-          src={transitions.advantages.top.image}
-          alt="Top transition"
-          width={1440}
-          height={transitions.advantages.top.height}
-          className="w-full h-full object-cover" // Заполнение всего контейнера с сохранением пропорций
-        />
-      </div>
+      {transitions.advantages.top && (
+        <div
+          className={transitions.advantages.top.className}
+          style={{
+            height: transitions.advantages.top.height, // Высота верхнего перехода
+            backgroundColor: transitions.advantages.top.backgroundColor // Цвет фона перехода
+          }}
+        >
+          <Image
+            src={transitions.advantages.top.image}
+            alt="Top transition"
+            width={1440}
+            height={transitions.advantages.top.height}
+            className="w-full h-full object-cover" // Заполнение всего контейнера с сохранением пропорций
+          />
+        </div>
+      )}
 
       {/* Bottom transition - нижний декоративный элемент перехода */}
-      <div
-        className={transitions.advantages.bottom.className}
-        style={{
-          height: transitions.advantages.bottom.height, // Высота нижнего перехода
-          backgroundColor: transitions.advantages.bottom.backgroundColor // Цвет фона перехода
-        }}
-      >
-        <Image
-          src={transitions.advantages.bottom.image}
-          alt="Bottom transition"
-          width={1440}
-          height={transitions.advantages.bottom.height}
-          className="w-full h-full object-cover" // Заполнение всего контейнера с сохранением пропорций
-        />
-      </div>
+      {transitions.advantages.bottom && (
+        <div
+          className={transitions.advantages.bottom.className}
+          style={{
+            height: transitions.advantages.bottom.height, // Высота нижнего перехода
+            backgroundColor: transitions.advantages.bottom.backgroundColor // Цвет фона перехода
+          }}
+        >
+          <Image
+            src={transitions.advantages.bottom.image}
+            alt="Bottom transition"
+            width={1440}
+            height={transitions.advantages.bottom.height}
+            className="w-full h-full object-cover" // Заполнение всего контейнера с сохранением пропорций
+          />
+        </div>
+      )}
 
       {/* Основной контент секции */}
       {/* - container: ограничивает ширину контента
@@ -253,4 +257,4 @@ const AdvantagesSection = () => {
   );
 };
 
-export { AdvantagesSection };
+export default AdvantagesSection;

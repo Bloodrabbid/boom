@@ -1,10 +1,16 @@
 import { aboutSizes } from './styles/sizes'
 
+type SizeValue = { size: string } | { minHeight: string };
+type Size = SizeValue | { [key: string]: SizeValue };
+
 /**
  * Утилита для объединения классов размеров из конфигурации
  */
-const getSizeClasses = (sizes: Record<string, { size: string }>) => {
-  return Object.values(sizes).map(({ size }) => size).join(' ')
+const getSizeClasses = (sizes: Size) => {
+  if ('size' in sizes || 'minHeight' in sizes) {
+    return 'size' in sizes ? sizes.size : sizes.minHeight;
+  }
+  return Object.values(sizes).map(v => 'size' in v ? v.size : v.minHeight).join(' ');
 }
 
 /**
@@ -129,7 +135,7 @@ export const aboutStyles = {
       'w-full',
       'aspect-square',        // Квадратное соотношение на мобильных
       'md:aspect-video',      // 16:9 на планшетах
-      'lg:aspect-[4/3]'       // Изменённые пропорции для десктопа
+      'lg:aspect-[4/3]'       // Изменённые пропорции для десктоп��
     ].join(' ')
   },
 

@@ -49,7 +49,7 @@ export default function PagesPage() {
             <Reorder.Item
               key={section.id}
               value={section}
-              as={motion.div}
+              as={motion.div as any}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
