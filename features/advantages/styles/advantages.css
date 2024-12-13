@@ -1,0 +1,50 @@
+.advantages-swiper {
+  padding: 20px 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: calc(100vh - 200px);
+}
+
+.advantages-swiper .swiper-slide {
+  width: 70%;
+  max-width: 800px;
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.advantages-swiper .swiper-slide-active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.advantages-swiper .swiper-button-next,
+.advantages-swiper .swiper-button-prev {
+  color: #ffffff;
+  background: rgba(255, 75, 38, 0.7);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.advantages-swiper .swiper-button-next:hover,
+.advantages-swiper .swiper-button-prev:hover {
+  background: rgba(255, 75, 38, 0.9);
+}
+
+.advantages-swiper .swiper-button-next::after,
+.advantages-swiper .swiper-button-prev::after {
+  font-size: 20px;
+}
+
+.advantages-swiper .swiper-button-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Эффект перекрытия для coverflow */
+.advantages-swiper .swiper-slide-shadow-left,
+.advantages-swiper .swiper-slide-shadow-right {
+  background-image: linear-gradient(to left, rgba(255, 75, 38, 0.15), rgba(0, 0, 0, 0.0));
+}
