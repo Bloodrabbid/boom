@@ -8,7 +8,8 @@ import AnimatedDrumButton from '@/components/AnimatedDrumButton';
 const raleway = Raleway({ 
   subsets: ['latin', 'cyrillic'],
   weight: ['400', '500', '700', '800'],
-  variable: '--font-raleway'
+  variable: '--font-raleway',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -22,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={raleway.variable}>
-      <body className={raleway.className}>
+    <html lang="ru" className={`${raleway.variable}`}>
+      <body className={`${raleway.className} font-sans`}>
         <Header />
         <main>{children}</main>
         {/*<AdminButton />*/}

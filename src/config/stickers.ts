@@ -18,6 +18,10 @@ export interface Sticker {
     width: number;
     height: number;
   };
+  breakpoints?: {
+    md?: { width: number; height: number };
+    lg?: { width: number; height: number };
+  };
   position: {
     type: 'absolute';
     inset?: string;
@@ -51,33 +55,16 @@ export const defaultStickers: SectionStickers = {
       src: '/vinyl.svg',
       alt: 'Винил',
       imageKey: 'possibilities',
-      size: { width: 8, height: 8 },
+      size: { width: 7, height: 7 },
+      breakpoints: {
+        md: { width: 10, height: 10 },
+        lg: { width: 12, height: 12 }
+      },
       position: {
         type: 'absolute',
-        inset: '85% 0% 0% 85%',
-        transform: 'none'
-      },
-      animation: {
-        animate: {
-          rotate: [0, 360]
-        },
-        transition: {
-          duration: 8,
-          repeat: Infinity,
-          ease: 'linear'
-        }
-      },
-      zIndex: 40
-    },
-    {
-      src: '/cd.svg',
-      alt: 'Диск',
-      imageKey: 'learning',
-      size: { width: 8, height: 8 },
-      position: {
-        type: 'absolute',
-        inset: '85% 0% 0% -5%',
-        transform: 'none'
+        top: '75%',
+        left: '-2%',
+        transform: 'rotate(-15deg)'
       },
       animation: {
         animate: {
@@ -93,13 +80,45 @@ export const defaultStickers: SectionStickers = {
     },
     {
       src: '/tambourine.svg',
-      alt: 'Бубен',
-      imageKey: 'music',
-      size: { width: 8, height: 8 },
+      alt: 'Диск',
+      imageKey: 'learning',
+      size: { width: 7, height: 7 },
+      breakpoints: {
+        md: { width: 10, height: 10 },
+        lg: { width: 12, height: 12 }
+      },
       position: {
         type: 'absolute',
-        inset: '85% 0% 0% 85%',
-        transform: 'none'
+        top: '75%',
+        right: '-2%',
+        transform: 'rotate(-15deg)'
+      },
+      animation: {
+        animate: {
+          rotate: [0, 16, 0]
+        },
+        transition: {
+          duration: 8,
+          repeat: Infinity,
+          ease: 'linear'
+        }
+      },
+      zIndex: 40
+    },
+    {
+      src: '/cd.svg',
+      alt: 'Бубен',
+      imageKey: 'music',
+      size: { width: 7, height: 7 },
+      breakpoints: {
+        md: { width: 10, height: 10 },
+        lg: { width: 12, height: 12 }
+      },
+      position: {
+        type: 'absolute',
+        top: '75%',
+        left: '-2%',
+        transform: 'rotate(-15deg)'
       },
       animation: {
         animate: {
@@ -181,7 +200,11 @@ export const defaultStickers: SectionStickers = {
     {
       src: '/guitar-10.svg',
       alt: 'GuitarAbout',
-      size: { width: 15, height: 15 },
+      size: { width: 7, height: 7 },
+      breakpoints: {
+        md: { width: 12, height: 12 },
+        lg: { width: 15, height: 15 }
+      },
       position: {
         type: 'absolute',
         left: '-13%',
@@ -204,7 +227,11 @@ export const defaultStickers: SectionStickers = {
     {
       src: '/piano.svg',
       alt: 'PianoAbout',
-      size: { width: 13, height: 13 },
+      size: { width: 7, height: 7 },
+      breakpoints: {
+        md: { width: 12, height: 12 },
+        lg: { width: 15, height: 15 }
+      },
       position: {
         type: 'absolute',
         right: '-5%',

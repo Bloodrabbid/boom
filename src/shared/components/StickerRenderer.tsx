@@ -16,12 +16,6 @@ interface StickerRendererProps {
   };
 }
 
-/**
- * Компонент для рендеринга стикеров с анимацией
- * @param stickers - массив стикеров для отображения
- * @param containerClassName - дополнительные классы для контейнера
- * @param imageProps - свойства для основного изображения (если есть)
- */
 const StickerRenderer = memo(({ stickers = [], containerClassName = '', imageProps }: StickerRendererProps) => {
   return (
     <div className={`relative ${containerClassName}`}>
@@ -38,28 +32,39 @@ const StickerRenderer = memo(({ stickers = [], containerClassName = '', imagePro
           key={`${sticker.src}-${index}`}
           className="absolute"
           style={{
-            width: `${sticker.size.width}rem`,
-            height: `${sticker.size.height}rem`,
-            zIndex: sticker.zIndex || 1,
             ...(sticker.position.inset ? { inset: sticker.position.inset } : {}),
             ...(sticker.position.top ? { top: sticker.position.top } : {}),
             ...(sticker.position.right ? { right: sticker.position.right } : {}),
             ...(sticker.position.bottom ? { bottom: sticker.position.bottom } : {}),
             ...(sticker.position.left ? { left: sticker.position.left } : {}),
-            transform: sticker.position.transform || 'none'
+            transform: sticker.position.transform || 'none',
+            zIndex: sticker.zIndex || 1
           }}
-          initial={{ 
-            scale: 1, 
-            rotate: 0
-          }}
-          animate={{
-            ...sticker.animation.animate,
-          }}
-          transition={{
-            ...sticker.animation.transition,
-          }}
+         
+          animate={sticker.animation.animate}
+          transition={sticker.animation.transition}
         >
-          <div className="w-full h-full relative transform-gpu">
+          <div 
+            className="relative"
+            style={{
+              width: `${sticker.size.width}rem`,
+              height: `${sticker.size.height}rem`
+            }}
+          >
+            <style jsx>{`
+              @media (min-width: 768px) {
+                div {
+                  width: ${sticker.breakpoints?.md?.width || sticker.size.width}rem !important;
+                  height: ${sticker.breakpoints?.md?.height || sticker.size.height}rem !important;
+                }
+              }
+              @media (min-width: 1024px) {
+                div {
+                  width: ${sticker.breakpoints?.lg?.width || sticker.breakpoints?.md?.width || sticker.size.width}rem !important;
+                  height: ${sticker.breakpoints?.lg?.height || sticker.breakpoints?.md?.height || sticker.size.height}rem !important;
+                }
+              }
+            `}</style>
             <Image
               src={sticker.src}
               alt={sticker.alt}

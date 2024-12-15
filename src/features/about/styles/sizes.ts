@@ -19,13 +19,16 @@ export const aboutSizes = {
   // Размеры для заголовков карточек (Б, У, М)
   cardTitle: {
     base: {
-      size: 'text-2xl'
+      size: 'text-xl leading-[1]'
+    },
+    md: {
+      size: 'md:text-4xl md:leading-[1.4]'
     },
     lg: {
-      size: 'lg:text-[50px]' // Увеличенный размер для заголовков
+      size: 'lg:text-[50px] lg:leading-[1] lg:whitespace-normal' // Увеличенный размер для заголовков с большим интервалом
     },
     highlight: {
-      size: 'lg:text-[52px]' // Тот же размер для выделенной буквы
+      size: 'lg:text-[52px]' // Размер для выделенной буквы
     }
   },
 
@@ -48,7 +51,7 @@ export const aboutSizes = {
       minHeight: 'md:min-h-[315px]'
     },
     lg: {
-      minHeight: 'lg:min-h-[400px]' // Увеличенная высота карточек
+      minHeight: 'lg:min-h-[315px]' // Увеличенная высота карточек
     }
   },
 

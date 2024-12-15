@@ -34,49 +34,4 @@ export const aboutConfig = {
     }
   ],
   
-  // Конфигурация стикеров (декоративных элементов)
-  stickers: {
-    // Стикеры для основных карточек
-    about: [
-      {
-        imageKey: 'possibilities',
-        position: { top: '10%', left: '5%' }, // Позиционирование стикера
-        rotation: -15, // Поворот для динамичности
-        size: { width: 120, height: 120 } // Размеры стикера
-      },
-      {
-        imageKey: 'learning',
-        position: { top: '40%', right: '5%' },
-        rotation: 20,
-        size: { width: 120, height: 120 }
-      },
-      {
-        imageKey: 'music',
-        position: { bottom: '10%', left: '5%' },
-        rotation: 15,
-        size: { width: 120, height: 120 }
-      }
-    ],
-    // Стикеры для блока "Для кого" (музыкальные ноты)
-    aboutGeneral: [
-      {
-        imageKey: 'note1',
-        position: { top: '5%', left: '5%' },
-        rotation: -15,
-        size: { width: 40, height: 40 }
-      },
-      {
-        imageKey: 'note2',
-        position: { top: '10%', right: '10%' },
-        rotation: 20,
-        size: { width: 40, height: 40 }
-      },
-      {
-        imageKey: 'note3',
-        position: { bottom: '15%', left: '15%' },
-        rotation: 10,
-        size: { width: 40, height: 40 }
-      }
-    ]
-  }
 }

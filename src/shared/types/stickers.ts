@@ -34,6 +34,7 @@ export interface StickerSize {
 }
 
 export interface Sticker {
+  breakpoints: any;
   src: string;
   alt: string;
   imageKey?: string;

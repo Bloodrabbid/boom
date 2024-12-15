@@ -17,6 +17,10 @@ const config: Config = {
       'xl': '1280px',
       '2xl': '1536px',
     },
+    fontFamily: {
+      sans: ['var(--font-raleway)'],
+      raleway: ['var(--font-raleway)'],
+    },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
