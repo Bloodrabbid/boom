@@ -110,7 +110,6 @@ const HeroSection = ({ className }: Omit<HeroSectionProps, 'stickers'>) => {
               heroStyles.button.link.states,
               heroStyles.button.link.colors,
               heroStyles.button.link.size,
-              heroStyles.button.link.shape,
               heroStyles.button.link.text
             )}
           >
