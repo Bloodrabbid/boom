@@ -34,7 +34,6 @@ export const heroTypography = {
     weight: 'font-bold',
     transform: 'uppercase',
     lineHeight: 'leading-[35.22px]',
-    fontSize: 'text-[27px]',
     color: 'text-white'
   }
 } as const;

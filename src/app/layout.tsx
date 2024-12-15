@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={raleway.className}>
         <Header />
         <main>{children}</main>
-        <AdminButton />
+        {/*<AdminButton />*/}
         <AnimatedDrumButton />
       </body>
     </html>

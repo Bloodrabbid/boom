@@ -23,29 +23,29 @@ export const heroSizes: Sizes = {
   // Размеры логотипа
   logo: {
     base: {
-      size: 'w-[40px] h-[40px]'
+      size: 'w-[100px] h-[100px] -mb-[25px]'
     },
     sm: {
-      size: 'sm:w-[80px] sm:h-[80px]'
+      size: 'sm:w-[130px] sm:h-[130px] sm:-mb-[20px]'
     },
     md: {
-      size: 'md:w-[120px] md:h-[120px]'
+      size: 'md:w-[150px] md:h-[150px] md:-mb-[0px]'
     },
     lg: {
-      size: 'lg:w-[200px] lg:h-[200px]'
+      size: 'lg:w-[200px] lg:h-[200px] lg:-mb-[0px]'
     }
   },
 
   // Размеры заголовка "БУМ"
   title: {
     base: {
-      size: 'text-[20px]'
+      size: 'text-[100px]'
     },
     sm: {
-      size: 'sm:text-[160px]'
+      size: 'sm:text-[140px]'
     },
     md: {
-      size: 'md:text-[120px]'
+      size: 'md:text-[185px]'
     },
     lg: {
       size: 'lg:text-[230px]'
@@ -55,29 +55,62 @@ export const heroSizes: Sizes = {
   // Размеры подзаголовка
   subtitle: {
     base: {
-      size: 'text-[20px] -mt-[40px]'
+      size: 'text-[37px] -mt-[35px]'
     },
     sm: {
-      size: 'sm:text-[80px] sm:-mt-[50px]'
+      size: 'sm:text-[50px] sm:-mt-[45px]'
     },
     md: {
-      size: 'md:text-[80px] md:-mt-[60px]'
+      size: 'md:text-[63px] md:-mt-[60px]'
+    },
+    lg: {
+      size: 'lg:text-[80px] lg:-mt-[60px]'
     }
   },
 
   // Размеры кнопки
   button: {
     base: {
-      size: 'h-12 px-6 py-3'
+      size: 'h-10 px-6 py-3 mt-8'
     },
     sm: {
-      size: 'sm:h-14 sm:px-7 sm:py-3'
+      size: 'sm:h-14 sm:w-[362px] sm:px-7 sm:py-3 sm:mt-12'
     },
     md: {
-      size: 'md:h-16 md:px-8 md:py-4'
+      size: 'md:w-[450px] md:h-14 md:px-8 md:py-4 md:mt-0'
     },
     lg: {
-      size: 'lg:h-[80px] lg:w-[580px] lg:px-10 lg:py-5'
+      size: 'lg:h-[80px] lg:w-[585px] lg:px-10 lg:py-5 lg:mt-0'
+    }
+  },
+  // Размеры текста кнопки
+  buttonText: {
+    base: {
+      size: 'text-[13px]'
+    },
+    sm: {
+      size: 'sm:text-[16px]'
+    },
+    md: {
+      size: 'md:text-[20px]'
+    },
+    lg: {
+      size: 'lg:text-[27px]'
+    }
+  },
+  // Скругление кнопки
+  buttonRound: {
+    base: {
+      size: 'rounded-[13px]'
+    },
+    sm: {
+      size: 'sm:rounded-[15px]'
+    },
+    md: {
+      size: 'md:rounded-[15px]'
+    },
+    lg: {
+      shape: 'lg:text-[25px]'
     }
   }
 };

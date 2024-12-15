@@ -6,10 +6,10 @@ export const aboutSizes = {
   // Размеры для главного заголовка секции "Что такое БУМ?"
   sectionTitle: {
     base: {
-      size: 'text-[48px]'
+      size: 'text-[28px]'
     },
     md: {
-      size: 'md:text-[56px]'
+      size: 'md:text-[50px]'
     },
     lg: {
       size: 'lg:text-[64px]'
@@ -22,10 +22,10 @@ export const aboutSizes = {
       size: 'text-2xl'
     },
     lg: {
-      size: 'lg:text-[48px]' // Увеличенный размер для заголовков
+      size: 'lg:text-[50px]' // Увеличенный размер для заголовков
     },
     highlight: {
-      size: 'lg:text-[48px]' // Тот же размер для выделенной буквы
+      size: 'lg:text-[52px]' // Тот же размер для выделенной буквы
     }
   },
 

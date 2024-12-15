@@ -6,12 +6,18 @@ export const heroStyles = {
   // Основной контейнер секции
   container: [
     'relative', // Позиционирование относительно
-    'min-h-[80vh]', // Минимальная высота секции
+    'min-h-[60vh]', // Минимальная высота секции для мобильных
+    'sm:min-h-[70vh]', // Минимальная высота секции для sm
+    'md:min-h-[80vh]', // Минимальная высота секции для md
     'w-full', // Полная ширина
     'flex items-center justify-center', // Центрирование содержимого
     'text-white', // Цвет текста
-    'pb-8', // Отступ снизу
-    'mt-[200px]' // Отступ сверху
+    'pb-4', // Отступ снизу для мобильных
+    'sm:pb-6', // Отступ снизу для sm
+    'md:pb-8', // Отступ снизу для md
+    'mt-[100px]', // Отступ сверху для мобильных
+    'sm:mt-[150px]', // Отступ сверху для sm
+    'md:mt-[200px]' // Отступ сверху для md
   ].join(' '),
   
   // Контейнер для контента
@@ -126,7 +132,9 @@ export const heroStyles = {
         'inline-flex', // Строчный флекс
         'items-center', // Центрирование по вертикали
         'justify-center', // Центрирование по горизонтали
-        'transition-colors' // Анимация цветов
+        'transition-colors', // Анимация цветов
+        getSizeClasses(heroSizes.buttonText), // Добавляем адаптивные размеры текста
+        getSizeClasses(heroSizes.buttonRound) // Адаптивное скругление
       ].join(' '),
       
       // Стили для фокуса и состояний
@@ -150,8 +158,7 @@ export const heroStyles = {
       // Размеры кнопки
       size: getSizeClasses(heroSizes.button), // Размеры для разных брейкпоинтов
       
-      // Форма кнопки
-      shape: 'rounded-[25px]', // Скругление углов
+    
       
       // Типографика кнопки
       text: getTypographyClasses(heroTypography.button) // Стили текста

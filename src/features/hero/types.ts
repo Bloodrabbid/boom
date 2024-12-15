@@ -5,7 +5,7 @@ export interface HeroSectionProps {
   className?: string;
 }
 
-export interface HeroContent {
+export interface aboutHeroContent {
   title: string;
   subtitle: string;
   description: string;
