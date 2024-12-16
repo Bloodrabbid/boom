@@ -1,4 +1,4 @@
-import { type Sticker, type AboutImages, type AboutImageKey } from '@/shared/types/stickers';
+import { type Sticker, type AboutImageKey } from '@/shared/types/stickers';
 
 export interface AboutSectionProps {
   stickers?: Sticker[];

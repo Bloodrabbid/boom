@@ -23,7 +23,7 @@ export function ResultsSection() {
     // - text-white: белый текст
     // - py-20: вертикальные отступы 5rem (80px)
     // - overflow-hidden: скрытие выходящего контента
-    <section className="relative bg-black text-white py-20 overflow-hidden" id="results">
+    <section className="relative max-h-[350px] min-[480px]:max-h-[440px] sm:max-h-[500px] md:max-h-[600px] lg:max-h-[850px] bg-black text-white py-20 overflow-hidden" id="results">
       {/* Фоновые звезды
           - absolute inset-0: растягивание на всю секцию
           - pointer-events-none: игнорирование событий мыши */}
@@ -64,7 +64,7 @@ export function ResultsSection() {
               - text-4xl md:text-5xl: адаптивный размер текста
               - font-bold: жирный шрифт
               - mb-4: нижний отступ 1rem (16px) */}
-          <h2 className="text-[64px] md:text-[64px] font-bold">
+          <h2 className="lg:text-[64px] md:text-[50px] text-[29px] mt-[-90px] font-bold">
             Наши отчетные концерты
           </h2>
         </motion.div>

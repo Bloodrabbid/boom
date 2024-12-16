@@ -483,5 +483,18 @@ export const defaultStickers: SectionStickers = {
       },
       zIndex: 0
     }
-  ]
+  ],aboutImages: {
+    possibilities: {
+      src: '/cards/possibilities.png',
+      alt: 'Безграничные возможности'
+    },
+    learning: {
+      src: '/cards/learning.png',
+      alt: 'Уникальное обучение'
+    },
+    music: {
+      src: '/cards/music.png',
+      alt: 'Море музыки'
+    }
+  }
 };

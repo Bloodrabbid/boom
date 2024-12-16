@@ -258,8 +258,7 @@ const AboutUs = () => {
             {/* Info cards */}
             <div className={aboutStyles.cardsGrid}>
               {aboutConfig.cards.map((card, index) => {
-                const imageConfig = (defaultStickers.aboutImages as Record<AboutImageKey, CardImage>)?.[card.imageKey as AboutImageKey];
-                
+                const imageConfig = defaultStickers.aboutImages[card.imageKey];
                 if (!imageConfig?.src) return null;
 
                 return (
