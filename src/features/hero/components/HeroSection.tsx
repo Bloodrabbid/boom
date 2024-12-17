@@ -38,7 +38,7 @@ const HeroSection = ({ className }: Omit<HeroSectionProps, 'stickers'>) => {
         <div
           className={heroStyles.background.image}
           style={{
-            backgroundImage: 'url(/bg.png)',
+            backgroundImage: 'url(/бум.gif)',
             ...heroStyles.background.imageProps
           }}
         />

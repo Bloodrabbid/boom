@@ -80,7 +80,7 @@ export const aboutStyles = {
       'lg:flex-row',       // Строка на десктопах
       'items-center',      // Центрирование по вертикали
       'justify-between',   // Распределение пространства
-      'gap-8',            // Отступы между элементами
+      'gap-12',            // Отступы между элементами
       'lg:gap-24'         // Увеличенный отступ между текстом и изображением
     ].join(' '),
 
@@ -146,7 +146,7 @@ export const aboutStyles = {
     // Контейнер блока
     container: [
       'relative',
-      'lg:mt-[190px] md:mt-[150px] mt-[100px]',
+      'lg:mt-[190px] md:mt-[150px] mt-[150px]',
       'lg:mb-20 md:mb-16 mb-8'
     ].join(' '),
 
@@ -160,7 +160,7 @@ export const aboutStyles = {
       'w-[320px]', // Базовый размер для мобильных
       'md:w-[590px]', // Размер для планшетов
       'lg:w-[750px]', // Размер для десктопа
-      'lg:top-[-105px] md:top-[-90px] top-[-40px]'
+      'lg:top-[-105px] md:top-[-90px] top-[-55px]'
     ].join(' '),
 
     // Контейнер для контента

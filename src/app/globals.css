@@ -72,7 +72,7 @@ body {
 
 /* Results Swiper Styles */
 .results-swiper {
-  padding: 1rem !important;
+  padding: 1.5rem !important;
 }
 
 .results-swiper .swiper-slide {
@@ -81,7 +81,7 @@ body {
 
 @media (min-width: 768px) {
   .results-swiper {
-    padding: 2rem !important;
+    padding: 5rem !important;
   }
   
   .results-swiper .swiper-slide {
@@ -102,6 +102,7 @@ body {
 .results-swiper .swiper-button-next::after,
 .results-swiper .swiper-button-prev::after {
   font-size: 40px !important;
+  color: white;
 }
 
 @media (min-width: 768px) {
@@ -130,11 +131,11 @@ body {
 }
 
 .results-swiper .swiper-button-next {
-  right: -0.2rem !important;
+  right: -1rem !important;
 }
 
 .results-swiper .swiper-button-prev {
-  left: -0.2rem !important;
+  left: -1rem !important;
 }
 
 /* Polaroid styles */
@@ -159,6 +160,10 @@ body {
 /* Photo carousel styles */
 .photo-swiper {
   padding: 2rem 0;
+}
+
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -25px !important;
 }
 
 .photo-swiper .swiper-pagination-bullet {
