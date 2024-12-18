@@ -147,27 +147,28 @@ export const QuizSection = () => {
    switch (currentStep) {
      case 0:
        return (
-         <div className="space-y-6">
-           <div className="space-y-2">
-             <h3 className="text-[32px] font-bold">
+         <div className="lg:space-y-6">
+           <div className="container mx-auto p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center text-center">
+             <h3 className="lg:text-[32px] md:text-[28px] text-[22px] font-bold mb-4">
                ПРОЙДИ ТЕСТ И УЗНАЙ,
              </h3>
-             <p className="text-[32px] font-bold text-yellow-400">
+             <p className="lg:text-[32px] md:text-[28px] text-[22px] font-bold text-yellow-400 mb-8">
                КАКОЙ МУЗЫКАЛЬНЫЙ<br />
                ИНСТРУМЕНТ ТЕБЕ ПОДХОДИТ
              </p>
            </div>
-           <div className="flex justify-center">
+           <div className="flex justify-center mb-4">
              <Image
                src="/icons/thinking.png"
                alt="thinking"
                width={250}
                height={250}
+               className="max-w-full z-10 h-auto"
              />
            </div>
            <Button
              onClick={handleStart}
-             className="bg-[#FF0000] w-[208px] h-[77px] hover:bg-[#CC0000] text-white px-8 py-3 rounded-full text-xl"
+             className="bg-[#FF0000] w-[208px] h-[77px] hover:bg-[#CC0000] text-white px-8 py-3 rounded-full text-xl z-20"
            >
              ПОЕХАЛИ!
            </Button>
@@ -225,7 +226,7 @@ export const QuizSection = () => {
  const bottomTransition = transitions.quiz?.bottom;
 
  return (
-   <section className="relative bg-[#FF4B26] text-white py-20 overflow-hidden" id="quiz">
+   <section className="relative bg-[#FF4B26] text-white lg:py-20 py-5 overflow-hidden" id="quiz">
      <div className="absolute inset-0 overflow-hidden pointer-events-none">
        <Image
          src="/icons/note1.svg"
@@ -341,7 +342,7 @@ export const QuizSection = () => {
      <div className={styles.container.narrow}>
        <div className="relative z-10 flex flex-col items-center space-y-12 text-center mb-24">
          <h2 className="text-4xl md:text-[64px] font-bold mt-12">
-           <span className="text-black">Почему стоит </span>
+           <span className="text-black leading-[1.5]">Почему стоит </span>
            <span className="text-white">попробовать?</span>
          </h2>
          

@@ -35,16 +35,16 @@ const ContactsSection = () => {
     const init = () => {
       try {
         const newMap = new window.ymaps.Map('map', {
-          center: [48.502398, 135.071462],
-          zoom: 15,
+          center: [48.472781, 135.061990],
+          zoom: 16,
           controls: ['zoomControl', 'fullscreenControl'],
         });
 
         const placemark = new window.ymaps.Placemark(
-          [48.502398, 135.071462],
+          [48.472781, 135.061990],
           {
             hintContent: 'БУМ школа-студия музыки',
-            balloonContent: 'БУМ школа-студия музыки<br>ул. Заозёрная, 36 ст1',
+            balloonContent: 'БУМ школа-студия музыки<br>ул. Истоимина, 39а',
           },
           {
             preset: 'islands#redDotIcon',
@@ -335,7 +335,7 @@ const ContactsSection = () => {
                 - gap-2: отступ между строками 8px */}
             <div className="flex flex-col gap-2">
               <p className="text-white font-raleway font-medium text-lg md:text-2xl">
-                Хабаровск, ул. Заозёрная, 36 ст1
+                Хабаровск, ул. Истоимина, 39а
               </p>
               <p className="text-white font-raleway font-medium text-lg md:text-2xl">
                 Ежедневно с 10:00-22:00
