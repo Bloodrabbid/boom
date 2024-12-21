@@ -27,7 +27,7 @@ type Questions = Record<string, Question[]>;
 const instrumentEmojis = [
  { emoji: '🎸', className: 'absolute top-[8%] left-[12%] text-4xl' },
  { emoji: '🥁', className: 'absolute top-[45%] right-[8%] text-4xl' },
- { emoji: '🎹', className: 'absolute bottom-[15%] left-[23%] text-4xl' },
+ { emoji: '🎹', className: 'absolute bottom-[15%] left-[13%] text-4xl' },
  { emoji: '🎸', className: 'absolute top-[67%] right-[15%] text-4xl' },
  { emoji: '🥁', className: 'absolute top-[25%] left-[18%] text-4xl' },
  { emoji: '🎹', className: 'absolute bottom-[33%] right-[22%] text-4xl' },
@@ -143,91 +143,95 @@ export const QuizSection = () => {
    }
  };
 
- const renderContent = () => {
-   switch (currentStep) {
-     case 0:
-       return (
-         <div className="lg:space-y-6">
-           <div className="container mx-auto p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center text-center">
-             <h3 className="lg:text-[32px] md:text-[28px] text-[22px] font-bold mb-4">
-               ПРОЙДИ ТЕСТ И УЗНАЙ,
-             </h3>
-             <p className="lg:text-[32px] md:text-[28px] text-[22px] font-bold text-yellow-400 mb-8">
-               КАКОЙ МУЗЫКАЛЬНЫЙ<br />
-               ИНСТРУМЕНТ ТЕБЕ ПОДХОДИТ
-             </p>
-           </div>
-           <div className="flex justify-center mb-4">
-             <Image
-               src="/icons/thinking.png"
-               alt="thinking"
-               width={250}
-               height={250}
-               className="max-w-full z-10 h-auto"
-             />
-           </div>
-           <Button
-             onClick={handleStart}
-             className="bg-[#FF0000] w-[208px] h-[77px] hover:bg-[#CC0000] text-white px-8 py-3 rounded-full text-xl z-20"
-           >
-             ПОЕХАЛИ!
-           </Button>
-         </div>
-       );
-     case 1:
-       return (
-         <div className="space-y-6">
-           <h3 className="text-xl font-bold text-center mb-6">
-             Выберите инструмент:
-           </h3>
-           <div className="grid gap-4">
-             {instruments.map((instrument) => (
-               <Button
-                 key={instrument}
-                 onClick={() => handleInstrumentSelect(instrument)}
-                 variant="primary"
-                 className="w-full text-left text-lg py-4 px-6 bg-[#FF4B26] border-none text-white hover:bg-[#FF0000] transition-all whitespace-normal break-words min-h-[60px] flex items-center relative z-20"
-               >
-                 {instrument}
-               </Button>
-             ))}
-           </div>
-         </div>
-       );
-       case 2:
-        if (!selectedInstrument) return null;
-        const currentQuestions = questions[selectedInstrument];
-        const question = currentQuestions[currentQuestion];
-        if (!question) return null;
-        
-        return (
-          <div className="space-y-6">
-            <h3 className="text-xl font-bold text-center mb-6">
-              {formatQuestion(question.question)}
-            </h3>
-            <div className="grid gap-4">
-              {getCurrentAnswers(question).map((answer: string) => (
-                <Button
-                  key={answer}
-                  onClick={() => handleAnswer(answer)}
-                  variant="primary"
-                  className="w-full text-left text-lg py-4 px-6 bg-[#FF4B26] border-none text-white hover:bg-[#FF0000] transition-all whitespace-normal break-words min-h-[60px] flex items-center relative z-20"
-                >
-                  {answer}
-                </Button>
-              ))}
-            </div>
-          </div>
-        );
-   }
- };
+    const renderContent = () => {
+        switch (currentStep) {
+            case 0:
+                return (
+                    <div className="flex-col space-y-4 md:space-y-6 lg:space-y-8">
+                        <div className="container mx-auto px-4 md:px-6 lg:px-8 flex flex-col items-center justify-center text-center">
+                            <h3 className="text-xl md:text-2xl lg:text-3xl font-bold mb-2 md:mb-4">
+                                ПРОЙДИ ТЕСТ И УЗНАЙ,
+                            </h3>
+                            <p className="text-xl md:text-2xl lg:text-3xl font-bold text-yellow-400 mb-4 md:mb-6 lg:mb-8">
+                                КАКОЙ МУЗЫКАЛЬНЫЙ<br className="hidden md:block" /> ИНСТРУМЕНТ ТЕБЕ ПОДХОДИТ
+                            </p>
+                        </div>
+                        <div className="flex justify-center mb-4">
+                            <div className="relative w-40 h-40 md:w-52 md:h-52 lg:w-60 lg:h-60">
+                                <Image
+                                    src="/icons/thinking.png"
+                                    alt="thinking"
+                                    fill
+                                    className="object-contain z-10"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                        <Button
+                            onClick={handleStart}
+                            className="w-48 md:w-56 lg:w-64 h-14 md:h-16 lg:h-20 text-lg md:text-xl lg:text-2xl bg-[#FF0000] hover:bg-[#CC0000] text-white rounded-full z-50"
+                        >
+                            ПОЕХАЛИ!
+                        </Button>
+                    </div>
+                );
 
- const topTransition = transitions.quiz?.top;
+            case 1:
+                return (
+                    <div className="space-y-4 md:space-y-6 max-w-[640px] mx-auto">
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-4 md:mb-6">
+                            Выберите инструмент:
+                        </h3>
+                        <div className="grid gap-3 md:gap-4">
+                            {instruments.map((instrument) => (
+                                <Button
+                                    key={instrument}
+                                    onClick={() => handleInstrumentSelect(instrument)}
+                                    variant="primary"
+                                    className="w-full text-left text-base md:text-lg py-3 md:py-4 px-4 md:px-6 bg-[#FF4B26] border-none text-white hover:bg-[#FF0000] transition-all whitespace-normal break-words min-h-[50px] md:min-h-[60px] flex items-center relative z-20"
+                                >
+                                    {instrument}
+                                </Button>
+                            ))}
+                        </div>
+                    </div>
+                );
+
+            case 2:
+                if (!selectedInstrument) return null;
+                const currentQuestions = questions[selectedInstrument];
+                const question = currentQuestions[currentQuestion];
+                if (!question) return null;
+
+                return (
+                    <div className="space-y-4 md:space-y-6 max-w-[600px] mx-auto">
+                        <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-4 md:mb-6">
+                            {formatQuestion(question.question)}
+                        </h3>
+                        <div className="grid gap-3 md:gap-4">
+                            {getCurrentAnswers(question).map((answer: string) => (
+                                <Button
+                                    key={answer}
+                                    onClick={() => handleAnswer(answer)}
+                                    variant="primary"
+                                    className="w-full min-h-[77px] py-4 px-6 text-left text-base sm:text-lg whitespace-normal break-words bg-[#FF4B26] hover:bg-[#FF0000] text-white rounded-full z-50 relative transition-all duration-300 flex items-center"
+                                >
+                                    {answer}
+                                </Button>
+                            ))}
+                        </div>
+                    </div>
+                );
+        }
+    };
+
+
+    const topTransition = transitions.quiz?.top;
  const bottomTransition = transitions.quiz?.bottom;
 
  return (
    <section className="relative bg-[#FF4B26] text-white lg:py-20 py-5 overflow-hidden" id="quiz">
-     <div className="absolute inset-0 overflow-hidden pointer-events-none">
+     <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
        <Image
          src="/icons/note1.svg"
          alt="Musical note"
@@ -346,7 +350,7 @@ export const QuizSection = () => {
            <span className="text-white">попробовать?</span>
          </h2>
          
-         <div className="bg-black rounded-3xl p-8 w-full max-w-4xl mx-auto relative">
+         <div className="bg-black rounded-3xl p-8 w-full max-w-[980px] mx-auto relative mt-12">
            <Image
              src="/icons/lightning.png"
              alt="lightning"
