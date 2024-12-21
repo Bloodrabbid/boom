@@ -47,7 +47,7 @@ export const defaultStickers: SectionStickers = {
     },
     {
       src: '/tambourine.svg',
-      alt: 'Диск',
+      alt: 'Тамбурин',
       imageKey: 'learning',
       size: { width: 7, height: 7 },
       breakpoints: {
@@ -74,7 +74,7 @@ export const defaultStickers: SectionStickers = {
     },
     {
       src: '/cd.svg',
-      alt: 'Бубен',
+      alt: 'CD',
       imageKey: 'music',
       size: { width: 7, height: 7 },
       breakpoints: {
@@ -104,12 +104,26 @@ export const defaultStickers: SectionStickers = {
     {
       src: '/guitar-4.svg',
       alt: 'Гитара',
-      size: { width: 16, height: 16 },
+      size: { width: 7, height: 7 },
+      breakpoints: {
+        md: { width: 10, height: 10 },
+        lg: { width: 16, height: 16 }
+      },
       position: {
         type: 'absolute',
-        left: '-40%',
-        bottom: '-280%',
-        transform: 'rotate(-15deg)'
+        left: '-38%',
+        bottom: '-270%',
+        transform: 'rotate(-15deg)',
+        mobile: {
+          cardIndex: 5, // Профессиональные педагоги
+          left: '-10%',
+          bottom: '-600%'
+        },
+        desktop: {
+          cardIndex: 4, // Крутые мероприятия
+          left: '-38%',
+          bottom: '-270%'
+        }
       },
       animation: {
         animate: {
@@ -127,12 +141,26 @@ export const defaultStickers: SectionStickers = {
     {
       src: '/drum.svg',
       alt: 'Барабан',
-      size: { width: 12, height: 12 },
+      size: { width: 7, height: 7 },
+      breakpoints: {
+        md: { width: 10, height: 10 },
+        lg: { width: 12, height: 12 }
+      },
       position: {
         type: 'absolute',
         right: '-15%',
-        top: '-40%',
-        transform: 'rotate(15deg)'
+        top: '-30%',
+        transform: 'rotate(15deg)',
+        mobile: {
+          cardIndex: 0, // Индивидуальный подход
+          right: '-3%',
+          top: '-125%'
+        },
+        desktop: {
+          cardIndex: 1, // Занятия за инструментом
+          right: '-15%',
+          top: '-30%'
+        }
       },
       animation: {
         animate: {

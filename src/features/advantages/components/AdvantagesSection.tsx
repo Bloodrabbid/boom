@@ -75,25 +75,24 @@ const AdvantagesSection = () => {
           - relative: для z-index
           - z-10: располагает над фоновыми элементами
           - px-4: горизонтальные отступы на мобильных устройствах */}
-      <div className="container mx-auto relative z-10 px-[180px]">
+      <div className="container mx-auto relative z-10 px-4 md:px-8 lg:px-16 xl:px-[180px]">
         {/* Заголовок секции
             - text-2xl sm:text-3xl md:text-[64px]: адаптивный размер текста
             - font-bold: жирный шрифт
             - text-center: центрирование текста
             - mb-12: отступ снизу 3rem (48px)
             - text-white: белый цвет текста */}
-        <h2 className="text-2xl sm:text-3xl md:text-[64px] font-bold text-center mb-[90px] text-white">Наши преимущества</h2>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-[64px] font-bold text-center mb-8 md:mb-12 lg:mb-[90px] text-white">Наши преимущества</h2>
 
         {/* Сетка преимуществ
             - grid: создает сетку
             - grid-cols-1 sm:grid-cols-2: 1 колонка на мобильных, 2 на планшетах и выше
             - gap-4: отступ между элементами сетки 1rem (2px) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-[60px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-[60px]">
           {advantages.map((advantage, index) => (
-            <Card 
-              key={index} 
-              className="bg-white text-black cursor-pointer relative group"
-              style={{ maxWidth: '450px', maxHeight: '300px', width: '100%', margin: '0 auto' }}
+            <Card
+              key={index}
+              className="bg-white text-black cursor-pointer relative group max-w-[450px] min-h-[250px] md:min-h-[300px] w-full mx-auto"
               onClick={() => handleCardClick(index)}
             >
               {/* Стикеры для первой и второй карточки */}
@@ -112,22 +111,22 @@ const AdvantagesSection = () => {
                   - text-[#FF4B26]: оранжевый цвет
                   - opacity-80: небольшая прозрачность */}
               <div className="absolute top-3 right-3 text-[#FF4B26] opacity-80">
-                <svg 
-                  width="16" 
-                  height="16" 
-                  viewBox="0 0 24 24" 
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
                   fill="none"
                   className="group-hover:rotate-90 transition-transform duration-300" // Поворот на 90 градусов при наведении
                 >
-                  <path 
-                    d="M12 3v18M3 12h18" 
-                    stroke="currentColor" 
-                    strokeWidth="2.5" 
-                    strokeLinecap="round" 
+                  <path
+                    d="M12 3v18M3 12h18"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
                   />
                 </svg>
               </div>
-              
+
               {/* Содержимое карточки
                   - p-6: внутренние отступы 1.5rem (24px)
                   - flex flex-col: вертикальное расположение элементов
@@ -162,7 +161,7 @@ const AdvantagesSection = () => {
           - bg-cover bg-center: заполнение фона с центрированием
           - opacity-20: прозрачность 20% */}
       <div className="absolute inset-0 bg-[url('/images/advantages-bg.jpg')] bg-cover bg-center opacity-20"></div>
-      
+
       {/* Декоративные ноты
           - absolute inset-0: растягивание на всю секцию
           - overflow-hidden: скрытие выходящих за пределы элементов

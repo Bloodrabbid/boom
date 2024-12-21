@@ -12,27 +12,47 @@ export interface StickerAnimation {
   transition: Transition;
 }
 
+export interface StickerPosition {
+  type: 'absolute';
+  inset?: string;
+  top?: string;
+  right?: string;
+  left?: string;
+  bottom?: string;
+  transform?: string;
+  mobile?: {
+    cardIndex: number;
+    top?: string;
+    right?: string;
+    bottom?: string;
+    left?: string;
+  };
+  desktop?: {
+    cardIndex: number;
+    top?: string;
+    right?: string;
+    bottom?: string;
+    left?: string;
+  };
+}
+
+export interface StickerSize {
+  width: number;
+  height: number;
+}
+
+export interface StickerBreakpoints {
+  md?: StickerSize;
+  lg?: StickerSize;
+}
+
 export interface Sticker {
   src: string;
   alt: string;
   imageKey?: string;
-  size: {
-    width: number;
-    height: number;
-  };
-  breakpoints?: {
-    md?: { width: number; height: number };
-    lg?: { width: number; height: number };
-  };
-  position: {
-    type: 'absolute';
-    inset?: string;
-    top?: string;
-    right?: string;
-    left?: string;
-    bottom?: string;
-    transform?: string;
-  };
+  size: StickerSize;
+  breakpoints?: StickerBreakpoints;
+  position: StickerPosition;
   animation: StickerAnimation;
   zIndex?: number;
 }
@@ -49,4 +69,17 @@ export interface SectionStickers {
     music: CardImage;
   };
   aboutGeneral?: Sticker[];
+}
+
+export interface AdvantagesSectionProps {
+  stickers?: Sticker[];
+  className?: string;
+}
+
+export interface Advantage {
+  id: string;
+  title: string;
+  description: string;
+  icon: string;
+  stickers?: Sticker[];
 }
