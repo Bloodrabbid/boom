@@ -111,13 +111,13 @@ export const defaultStickers: SectionStickers = {
       },
       position: {
         type: 'absolute',
-        left: '-38%',
-        bottom: '-270%',
+        left: '-35%',
+        bottom: '-20%',
         transform: 'rotate(-15deg)',
         mobile: {
           cardIndex: 5, // Профессиональные педагоги
-          left: '-10%',
-          bottom: '-600%'
+          left: '-12%',
+          bottom: '-16%'
         },
         desktop: {
           cardIndex: 4, // Крутые мероприятия
@@ -154,7 +154,7 @@ export const defaultStickers: SectionStickers = {
         mobile: {
           cardIndex: 0, // Индивидуальный подход
           right: '-3%',
-          top: '-125%'
+          top: '-12%'
         },
         desktop: {
           cardIndex: 1, // Занятия за инструментом
