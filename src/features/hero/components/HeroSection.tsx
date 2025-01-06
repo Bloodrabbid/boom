@@ -34,22 +34,27 @@ const HeroSection = ({ className }: Omit<HeroSectionProps, 'stickers'>) => {
           - absolute inset-0: растягивание на всю секцию
           - bg-center bg-cover: центрирование и масштабирование фона
           - bg-black bg-opacity-50: черное затемнение с прозрачностью 50% */}
-      <div className={heroStyles.background.wrapper}>
-        <div
-          className={heroStyles.background.image}
-          style={{
-            backgroundImage: 'url(/бум.gif)',
-            ...heroStyles.background.imageProps
-          }}
-        />
-        <div className={heroStyles.background.overlay} />
-      </div>
+        <div className={heroStyles.background.wrapper}>
+            <video
+                className={heroStyles.background.video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                aria-hidden="true"
+            >
+                <source src="/бум.mp4" type="video/mp4"/>
+                {/* Можно добавить другие форматы для лучшей поддержки браузеров */}
+                Your browser does not support the video tag.
+            </video>
+            <div className={heroStyles.background.overlay}/>
+        </div>
 
-      {/* Основной контент
+        {/* Основной контент
           - text-center: центрирование текста
           - relative z-10: размещение над фоном
           - px-4: горизонтальные отступы на мобильных устройствах */}
-      <div className={heroStyles.content.wrapper}>
+        <div className={heroStyles.content.wrapper}>
         {/* Анимированный блок с логотипом и подзаголовком
             - flex flex-col: вертикальное расположение
             - items-center justify-center: центрирование

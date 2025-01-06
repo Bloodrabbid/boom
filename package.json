@@ -46,6 +46,10 @@
   "devDependencies": {
     "@shadcn/ui": "^0.0.4",
     "@types/js-yaml": "^4.0.9",
-    "@types/react-day-picker": "^5.2.1"
+    "@types/react-day-picker": "^5.2.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-webp": "^8.0.0",
+    "next-optimized-images": "^2.6.2"
   }
 }
