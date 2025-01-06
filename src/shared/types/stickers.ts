@@ -1,4 +1,6 @@
-import { type TargetAndTransition, type Transition } from 'framer-motion';
+// src/shared/types/stickers.ts
+
+import { TargetAndTransition, Transition } from 'framer-motion';
 
 export interface CardImage {
   src: string;
@@ -12,6 +14,14 @@ export interface StickerAnimation {
   transition: Transition;
 }
 
+export interface StickerPositionSubType {
+  cardIndex: number;
+  top?: string;
+  right?: string;
+  bottom?: string;
+  left?: string;
+}
+
 export interface StickerPosition {
   type: 'absolute';
   inset?: string;
@@ -20,20 +30,8 @@ export interface StickerPosition {
   left?: string;
   bottom?: string;
   transform?: string;
-  mobile?: {
-    cardIndex: number;
-    top?: string;
-    right?: string;
-    bottom?: string;
-    left?: string;
-  };
-  desktop?: {
-    cardIndex: number;
-    top?: string;
-    right?: string;
-    bottom?: string;
-    left?: string;
-  };
+  mobile?: StickerPositionSubType;
+  desktop?: StickerPositionSubType;
 }
 
 export interface StickerSize {

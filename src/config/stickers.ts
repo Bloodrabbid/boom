@@ -1,22 +1,12 @@
-import { type SectionStickers, type CardImage } from '@/shared/types/stickers';
+// src/shared/constants/defaultStickers.ts
 
-const aboutImages = {
-  possibilities: {
-    src: '/cards/possibilities.png',
-    alt: 'Безграничные возможности'
-  },
-  learning: {
-    src: '/cards/learning.png',
-    alt: 'Уникальное обучение'
-  },
-  music: {
-    src: '/cards/music.png',
-    alt: 'Море музыки'
-  }
-} as const;
+import { SectionStickers } from '@/shared/types/stickers';
 
+/**
+ * Конфигурация стикеров для всех секций
+ */
 export const defaultStickers: SectionStickers = {
-  hero: [],
+  hero: [], // добавьте пустой массив для hero
   about: [
     {
       src: '/vinyl.svg',
@@ -31,7 +21,20 @@ export const defaultStickers: SectionStickers = {
         type: 'absolute',
         top: '75%',
         left: '-2%',
-        transform: 'rotate(-15deg)'
+        mobile: {
+          cardIndex: 0,
+          top: undefined,
+          right: undefined,
+          bottom: undefined,
+          left: undefined
+        },
+        desktop: {
+          cardIndex: 0,
+          top: undefined,
+          right: undefined,
+          bottom: undefined,
+          left: undefined
+        }
       },
       animation: {
         animate: {
@@ -58,7 +61,21 @@ export const defaultStickers: SectionStickers = {
         type: 'absolute',
         top: '75%',
         right: '-2%',
-        transform: 'rotate(-15deg)'
+        transform: 'rotate(-15deg)',
+        mobile: {
+          cardIndex: 1,
+          top: undefined,
+          right: undefined,
+          bottom: undefined,
+          left: undefined
+        },
+        desktop: {
+          cardIndex: 1,
+          top: undefined,
+          right: undefined,
+          bottom: undefined,
+          left: undefined
+        }
       },
       animation: {
         animate: {
@@ -85,7 +102,21 @@ export const defaultStickers: SectionStickers = {
         type: 'absolute',
         top: '75%',
         left: '-2%',
-        transform: 'rotate(-15deg)'
+        transform: 'rotate(-15deg)',
+        mobile: {
+          cardIndex: 2,
+          top: undefined,
+          right: undefined,
+          bottom: undefined,
+          left: undefined
+        },
+        desktop: {
+          cardIndex: 2,
+          top: undefined,
+          right: undefined,
+          bottom: undefined,
+          left: undefined
+        }
       },
       animation: {
         animate: {
@@ -122,7 +153,7 @@ export const defaultStickers: SectionStickers = {
         desktop: {
           cardIndex: 4, // Крутые мероприятия
           left: '-38%',
-          bottom: '-270%'
+          bottom: '-5%'
         }
       },
       animation: {
@@ -178,7 +209,6 @@ export const defaultStickers: SectionStickers = {
   ],
   quiz: [],
   reviews: [],
-  aboutImages,
   aboutGeneral: [
     {
       src: '/guitar-10.svg',
@@ -234,5 +264,19 @@ export const defaultStickers: SectionStickers = {
       },
       zIndex: 40
     }
-  ]
+  ],
+  aboutImages: {
+    possibilities: {
+      src: '/cards/possibilities.png',
+      alt: 'Безграничные возможности'
+    },
+    learning: {
+      src: '/cards/learning.png',
+      alt: 'Уникальное обучение'
+    },
+    music: {
+      src: '/cards/music.png',
+      alt: 'Море музыки'
+    }
+  },
 };

@@ -11,7 +11,6 @@ import SectionTitle from '@/shared/components/SectionTitle';
 import Photos from '@/components/Photos';
 import { aboutStyles } from '../styles';
 import { aboutConfig } from '../config';
-import { type AboutImageKey, type CardImage } from '@/shared/types/stickers';
 
 const AboutUs = () => {
   return (
@@ -237,118 +236,116 @@ const AboutUs = () => {
           />
         </div>
 
-        {/* Top Transition */}
-        {transitions.about.top && (
-          <TornPaper config={transitions.about.top} position="top" />
-        )}
+                {/* Верхний переход */}
+                {transitions.about.top && (
+                    <TornPaper config={transitions.about.top} position="top" />
+                )}
 
-        {/* Title Strip */}
-        {transitions.about.titleStrip && (
-          <SectionTitle config={transitions.about.titleStrip} />
-        )}
+                {/* Заголовок секции */}
+                {transitions.about.titleStrip && (
+                    <SectionTitle config={transitions.about.titleStrip} />
+                )}
 
-        {/* Bottom Transition */}
-        {transitions.about.bottom && (
-          <TornPaper config={transitions.about.bottom} position="bottom" />
-        )}
+                {/* Нижний переход */}
+                {transitions.about.bottom && (
+                    <TornPaper config={transitions.about.bottom} position="bottom" />
+                )}
 
-        {/* Main content */}
-        <div className={aboutStyles.content}>
-          <div className={aboutStyles.cardsContainer}>
-            {/* Info cards */}
-            <div className={aboutStyles.cardsGrid}>
-              {aboutConfig.cards.map((card, index) => {
-                const imageConfig = defaultStickers.aboutImages[card.imageKey];
-                if (!imageConfig?.src) return null;
+                {/* Основное содержание */}
+                <div className={aboutStyles.content}>
+                    <div className={aboutStyles.cardsContainer}>
+                        {/* Информационные карточки */}
+                        <div className={aboutStyles.cardsGrid}>
+                            {aboutConfig.cards.map((card, index) => {
+                                const imageConfig = defaultStickers.aboutImages[card.imageKey];
+                                if (!imageConfig?.src) return null;
 
-                return (
-                  <motion.div
-                    key={card.title.bold + card.title.rest}
-                    className={aboutStyles.card.container}
-                    initial={{ opacity: 0, x: card.position === 'left' ? -50 : 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.2 }}
-                  >
-                    <div className={aboutStyles.card.wrapper}>
-                      {/* Text card */}
-                      <div className={`${aboutStyles.card.textContainer} ${card.position === 'right' ? 'lg:order-2' : ''}`}>
-                        <div className={aboutStyles.card.content}>
-                          <h3 className={aboutStyles.card.title}>
-                            <span className={aboutStyles.card.titleHighlight}>{card.title.bold}</span>
-                            {card.title.rest}
-                          </h3>
-                          <p className={aboutStyles.card.text}>{card.content}</p>
+                                return (
+                                    <motion.div
+                                        key={card.title.bold + card.title.rest}
+                                        className={aboutStyles.card.container}
+                                        initial={{ opacity: 0, x: card.position === 'left' ? -50 : 50 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: index * 0.2 }}
+                                    >
+                                        <div className={aboutStyles.card.wrapper}>
+                                            {/* Текстовая карточка */}
+                                            <div className={`${aboutStyles.card.textContainer} ${card.position === 'right' ? 'lg:order-2' : ''}`}>
+                                                <div className={aboutStyles.card.content}>
+                                                    <h3 className={aboutStyles.card.title}>
+                                                        <span className={aboutStyles.card.titleHighlight}>{card.title.bold}</span>
+                                                        {card.title.rest}
+                                                    </h3>
+                                                    <p className={aboutStyles.card.text}>{card.content}</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Изображение карточки */}
+                                            <div className={`${aboutStyles.card.imageContainer} ${card.position === 'right' ? 'lg:order-1' : ''}`}>
+                                                <div className={aboutStyles.card.imageWrapper}>
+                                                    <StickerRenderer
+                                                        stickers={defaultStickers.about.filter(sticker =>
+                                                            sticker.imageKey === card.imageKey
+                                                        )}
+                                                        containerClassName="w-full h-full"
+                                                        imageProps={{
+                                                            src: imageConfig.src,
+                                                            alt: imageConfig.alt,
+                                                            fill: true,
+                                                            style: { objectFit: 'cover', borderRadius: '30px' }
+                                                        }}
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                );
+                            })}
                         </div>
-                      </div>
 
-                      {/* Image */}
-                      <div className={`${aboutStyles.card.imageContainer} ${card.position === 'right' ? 'lg:order-1' : ''}`}>
-                        <div className={aboutStyles.card.imageWrapper}>
-                          <StickerRenderer
-                            stickers={defaultStickers.about.filter(sticker => 
-                              sticker.imageKey === card.imageKey
-                            )}
-                            containerClassName="w-full h-full"
-                            imageProps={{
-                              src: imageConfig.src,
-                              alt: imageConfig.alt,
-                              fill: true,
-                              style: { objectFit: 'cover', borderRadius: '30px' }
-                            }}
-                          />
+                        {/* Блок "Для кого" */}
+                        <div className={aboutStyles.forWhom.container}>
+                            <div className={aboutStyles.forWhom.titleImage}>
+                                <Image
+                                    src="/komu.png"
+                                    alt="Для кого"
+                                    width={700}
+                                    height={80}
+                                    priority
+                                />
+                            </div>
+
+                            <div className={aboutStyles.forWhom.content}>
+                                {/* Стикеры */}
+                                <div className="hidden md:block absolute inset-0">
+                                    <StickerRenderer
+                                        stickers={defaultStickers.aboutGeneral}
+                                        containerClassName="relative w-full h-full"
+                                    />
+                                </div>
+
+                                <div className={aboutStyles.forWhom.text}>
+                                    <p className={aboutStyles.forWhom.paragraph}>
+                                        Возраст, профессия, пол - для занятия музыкой всё это не имеет значения,
+                                        даже если вы раньше пробовали самостоятельно и у вас ничего не получилось,
+                                        мы обязательно найдём к вам нужный ключик и вы поймёте, что играть может каждый!
+                                    </p>
+                                    <p className={aboutStyles.forWhom.paragraph}>
+                                        Дети от 5 лет
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                      </div>
+
+                        {/* Фото-карусель */}
+                        <div className={aboutStyles.photos}>
+                            <Photos />
+                        </div>
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* "For whom" block */}
-            <div className={aboutStyles.forWhom.container}>
-              {/* Title */}
-              <div className={aboutStyles.forWhom.titleImage}>
-                <Image
-                  src="/komu.png"
-                  alt="Для кого"
-                  width={700}
-                  height={80}
-                  priority
-                />
-              </div>
-
-              {/* Text block with stickers */}
-              <div className={aboutStyles.forWhom.content}>
-                {/* Stickers */}
-                <div className="hidden md:block absolute inset-0">
-                  <StickerRenderer
-                    stickers={defaultStickers.aboutGeneral}
-                    containerClassName="relative w-full h-full"
-                  />
                 </div>
-
-                <div className={aboutStyles.forWhom.text}>
-                  <p className={aboutStyles.forWhom.paragraph}>
-                    Возраст, профессия, пол - для занятия музыкой всё это не имеет значения, 
-                    даже если вы раньше пробовали самостоятельно и у вас ничего не получилось, 
-                    мы обязательно найдём к вам нужный ключик и вы поймёте, что играть может каждый!
-                  </p>
-                  <p className={aboutStyles.forWhom.paragraph}>
-                    Дети от 5 лет
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Photo carousel */}
-            <div className={aboutStyles.photos}>
-              <Photos />
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+            </section>
+        </>
+    );
 };
 
 export default AboutUs;
