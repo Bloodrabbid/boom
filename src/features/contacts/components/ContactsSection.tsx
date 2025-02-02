@@ -172,8 +172,8 @@ const ContactsSection = () => {
               <div className="w-full lg:w-1/2 flex flex-col items-center">
                 {/* Логотип и название */}
                 <div className="mb-2 text-center">
-                  <div className="flex items-center justify-center gap-4 mb-2">
-                    <DrumLogo className="mt-12 w-[60px] h-[60px] md:w-[80px] md:h-[80px] lg:w-[100px] lg:h-[100px]" />
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <DrumLogo className="mt-12 -mb-[12px] w-[60px] h-[60px] md:w-[85px] md:h-[85px] lg:w-[115px] lg:h-[115px]" />
                     <h1 className="-mb-[68px] md:-mb-[68px] lg:-mb-[68px] text-[60px] md:text-[85px] lg:text-[115px] font-normal text-white uppercase font-[DOCKERONE]">БУМ</h1>
                   </div>
                   <div className="text-[24px] md:text-[32px] lg:text-[40px] font-normal text-white uppercase font-[DOCKERONE] leading-[0.9]">

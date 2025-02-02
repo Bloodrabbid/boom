@@ -23,16 +23,16 @@ export const heroSizes: Sizes = {
   // Размеры логотипа
   logo: {
     base: {
-      size: 'w-[100px] h-[100px] -mb-[25px]'
+      size: 'w-[94px] h-[94px] -mb-[32px]'
     },
     sm: {
-      size: 'sm:w-[130px] sm:h-[130px] sm:-mb-[20px]'
+      size: 'sm:w-[135px] sm:h-[135px] sm:-mb-[29px]'
     },
     md: {
-      size: 'md:w-[150px] md:h-[150px] md:-mb-[0px]'
+      size: 'md:w-[170px] md:h-[170px] md:-mb-[24px]'
     },
     lg: {
-      size: 'lg:w-[200px] lg:h-[200px] lg:-mb-[0px]'
+      size: 'lg:w-[220px] lg:h-[220px] lg:-mb-[24px]'
     }
   },
 
