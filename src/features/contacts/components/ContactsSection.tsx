@@ -257,16 +257,10 @@ const ContactsSection = () => {
                   Результаты
                 </Link>
                 <Link
-                    href="#reviews"
+                    href="#quiz"
                     className="text-white hover:text-white/80 transition-colors font-raleway font-medium text-lg md:text-2xl"
                 >
-                  Отзывы
-                </Link>
-                <Link
-                    href="#contacts"
-                    className="text-white hover:text-white/80 transition-colors font-raleway font-medium text-lg md:text-2xl"
-                >
-                  Контакты
+                  Квиз
                 </Link>
               </nav>
               <div className="flex flex-col gap-2">

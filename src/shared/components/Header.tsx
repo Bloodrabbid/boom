@@ -37,8 +37,8 @@ const Header: React.FC = () => {
 
   const menuItems: MenuItem[] = [
     { href: '#about', title: 'О школе' },
-    { href: '#advantages', title: 'Результаты' },
-    { href: '#reviews', title: 'Отзывы' },
+    { href: '#results', title: 'Результаты' },
+    { href: '#quiz', title: 'Квиз' },
     { href: '#contacts', title: 'Контакты' },
   ];
 
