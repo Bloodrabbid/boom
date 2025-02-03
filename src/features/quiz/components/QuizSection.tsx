@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Button from '@/shared/components/Button';
 import { useToast } from '@/shared/components/ui/use-toast';
 import { styles } from '@/shared/styles/constants';
-import { instruments, questions } from '../data/quizData';
+import { AdultQuizQuestion, ChildQuizQuestion, instruments, adultQuestions, childQuestions } from '../data/quizData';
 import Image from 'next/image';
 import { transitions } from '@/config/transitions';
 
@@ -25,17 +25,17 @@ interface Question {
 type Questions = Record<string, Question[]>;
 
 const instrumentEmojis = [
- { emoji: '🎸', className: 'absolute top-[8%] left-[12%] text-4xl' },
- { emoji: '🥁', className: 'absolute top-[45%] right-[8%] text-4xl' },
- { emoji: '🎹', className: 'absolute bottom-[15%] left-[13%] text-4xl' },
- { emoji: '🎸', className: 'absolute top-[67%] right-[15%] text-4xl' },
- { emoji: '🥁', className: 'absolute top-[25%] left-[18%] text-4xl' },
- { emoji: '🎹', className: 'absolute bottom-[33%] right-[22%] text-4xl' },
- { emoji: '🎸', className: 'absolute bottom-[42%] left-[7%] text-4xl' },
- { emoji: '🎸', className: 'absolute top-[38%] right-[23%] text-4xl' },
- { emoji: '🥁', className: 'absolute bottom-[12%] right-[9%] text-4xl' },
- { emoji: '🎹', className: 'absolute top-[50%] left-[20%] text-4xl' },
- { emoji: '🎹', className: 'absolute bottom-[68%] right-[17%] text-4xl' },
+ { emoji: '🎸', className: 'absolute top-[8%] left-[12%] text-4xl z-0' },
+ { emoji: '🥁', className: 'absolute top-[45%] right-[8%] text-4xl z-0' },
+ { emoji: '🎹', className: 'absolute bottom-[15%] left-[13%] text-4xl z-0' },
+ { emoji: '🎸', className: 'absolute top-[67%] right-[15%] text-4xl z-0' },
+ { emoji: '🥁', className: 'absolute top-[25%] left-[18%] text-4xl z-0' },
+ { emoji: '🎹', className: 'absolute bottom-[33%] right-[22%] text-4xl z-0' },
+ { emoji: '🎸', className: 'absolute bottom-[42%] left-[7%] text-4xl z-0' },
+ { emoji: '🎸', className: 'absolute top-[38%] right-[23%] text-4xl z-0' },
+ { emoji: '🥁', className: 'absolute bottom-[12%] right-[9%] text-4xl z-0' },
+ { emoji: '🎹', className: 'absolute top-[50%] left-[20%] text-4xl z-0' },
+ { emoji: '🎹', className: 'absolute bottom-[68%] right-[17%] text-4xl z-0' },
 ];
 
 function AnimatedEmoji({ emoji, className }: { emoji: string; className?: string }) {
@@ -60,88 +60,111 @@ function AnimatedEmoji({ emoji, className }: { emoji: string; className?: string
  );
 }
 
+function cleanAnswer(text: string): string {
+    return text.replace(/\s*\(.*\)/, '').trim();
+}
+
+function declineMusicStyle(style: string): string {
+    const cleaned = cleanAnswer(style);
+    const mapping: Record<string, string> = {
+        'Рок': 'Року',
+        'Джаз': 'Джазу',
+        'Поп': 'Поп-музыке',
+        'Метал': 'Металу'
+    };
+    return mapping[cleaned] || cleaned;
+}
+
 export const QuizSection = () => {
- const [currentStep, setCurrentStep] = useState(0);
- const [selectedInstrument, setSelectedInstrument] = useState<string | null>(null);
- const [currentQuestion, setCurrentQuestion] = useState(0);
- const [answers, setAnswers] = useState<{ [key: string]: string }>({});
- const { toast } = useToast();
+    const [currentStep, setCurrentStep] = useState(0);
+    const [selectedInstrument, setSelectedInstrument] = useState<string | null>(null);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [answers, setAnswers] = useState<{ [key: string]: string }>({});
+    const [isChildMode, setIsChildMode] = useState(false);
+    const { toast } = useToast();
 
- const findNextQuestion = (current: number, questions: Question[]): number => {
-   let next = current + 1;
-   
-   if (next >= questions.length) {
-     return next;
-   }
+    const getCurrentQuestions = () => {
+        if (!selectedInstrument) return [];
+        return isChildMode
+            ? childQuestions[selectedInstrument]
+            : adultQuestions[selectedInstrument];
+    };
 
-   const nextQuestion = questions[next];
-   if (!nextQuestion.condition) {
-     return next;
-   }
+    const findNextQuestion = (currentIndex: number): number => {
+        const questions = getCurrentQuestions();
+        let nextIndex = currentIndex + 1;
 
-   const { key, value } = nextQuestion.condition;
-   if (answers[key] === value) {
-     return next;
-   }
+        while (nextIndex < questions.length) {
+            const nextQuestion = questions[nextIndex];
 
-   return findNextQuestion(next, questions);
- };
+            if (!nextQuestion.condition) return nextIndex;
 
- const handleStart = () => {
-   setCurrentStep(1);
- };
+            const { key, value } = nextQuestion.condition;
+            if (answers[key] === value) return nextIndex;
 
- const handleReset = () => {
-   setCurrentStep(0);
-   setSelectedInstrument(null);
-   setCurrentQuestion(0);
-   setAnswers({});
- };
+            nextIndex++;
+        }
 
- const handleInstrumentSelect = (instrument: string) => {
-   setSelectedInstrument(instrument);
-   setCurrentStep(2);
- };
+        return nextIndex;
+    };
 
- const formatQuestion = (question: string) => {
-   return question.replace(/\{(\w+)\}/g, (match, key) => answers[key] || match);
- };
+    const handleStart = () => {
+        setCurrentStep(1);
+    };
 
- const getCurrentAnswers = (question: any) => {
-   if (!question.dynamic_answers || !answers[question.key]) {
-     return question.answers;
-   }
+    const handleReset = () => {
+        setCurrentStep(0);
+        setSelectedInstrument(null);
+        setCurrentQuestionIndex(0);
+        setAnswers({});
+        setIsChildMode(false);
+    };
 
-   const dynamicAnswers = question.dynamic_answers[answers[question.key]] || [];
-   return [...question.answers, ...dynamicAnswers];
- };
+    const handleInstrumentSelect = (instrument: string) => {
+        setSelectedInstrument(instrument);
+        setCurrentStep(2);
+    };
 
- const handleAnswer = (answer: string) => {
-   if (!selectedInstrument) return;
-   
-   const currentQuestions = questions[selectedInstrument] as Question[];
-   if (!currentQuestions) return;
+    const formatQuestion = (question: string) => {
+        return question.replace(/\{(\w+)\}/g, (match, key) => {
+            const answerValue = answers[key];
+            if (!answerValue) return match;
+            if (key === 'music_style') return declineMusicStyle(answerValue);
+            return cleanAnswer(answerValue);
+        });
+    };
 
-   const question = currentQuestions[currentQuestion];
-   if (!question) return;
+    const getCurrentAnswers = (question: AdultQuizQuestion | ChildQuizQuestion): string[] => {
+        const baseAnswers = question.answers;
 
-   setAnswers(prev => ({
-     ...prev,
-     [question.key]: answer
-   }));
+        if (!question.dynamic_answers || !answers[question.key]) {
+            return baseAnswers;
+        }
 
-   const nextQuestion = findNextQuestion(currentQuestion, currentQuestions);
-   
-   if (nextQuestion < currentQuestions.length) {
-     setCurrentQuestion(nextQuestion);
-   } else {
-     toast({
-       title: 'Спасибо за ваши ответы!',
-       description: 'Мы подобрали для вас идеальную программу обучения и свяжемся с вами в ближайшее время.',
-     });
-     handleReset();
-   }
- };
+        const dynamicAnswers = question.dynamic_answers[answers[question.key]] || [];
+        return [...baseAnswers, ...dynamicAnswers];
+    };
+
+    const handleAnswer = (answer: string) => {
+        if (!selectedInstrument) return;
+        const currentQuestions = getCurrentQuestions();
+        const currentQuestion = currentQuestions[currentQuestionIndex];
+
+        if (currentQuestion.key === 'learner') {
+            setIsChildMode(answer.toLowerCase().includes('ребен'));
+        }
+
+        setAnswers(prev => ({ ...prev, [currentQuestion.key]: answer }));
+
+        const nextIndex = findNextQuestion(currentQuestionIndex);
+        if (nextIndex < currentQuestions.length) {
+            setCurrentQuestionIndex(nextIndex);
+        } else {
+            // Вместо handleReset() просто переходим к финальному сообщению
+            setCurrentQuestionIndex(nextIndex); // nextIndex === currentQuestions.length
+        }
+    };
+
 
     const renderContent = () => {
         switch (currentStep) {
@@ -199,10 +222,20 @@ export const QuizSection = () => {
 
             case 2:
                 if (!selectedInstrument) return null;
-                const currentQuestions = questions[selectedInstrument];
-                const question = currentQuestions[currentQuestion];
-                if (!question) return null;
+                const currentQuestions = getCurrentQuestions();
 
+                // Если все вопросы пройдены — отображаем финальное сообщение
+                if (currentQuestionIndex >= currentQuestions.length) {
+                    return (
+                        <div className="space-y-4 md:space-y-6 max-w-[600px] mx-auto z-50">
+                            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-4 md:mb-6 z-50">
+                                Спасибо за ваши ответы! Мы подобрали для вас идеальную программу обучения и свяжемся с вами в ближайшее время.
+                            </h3>
+                        </div>
+                    );
+                }
+
+                const question = currentQuestions[currentQuestionIndex];
                 return (
                     <div className="space-y-4 md:space-y-6 max-w-[600px] mx-auto">
                         <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-4 md:mb-6">
@@ -231,7 +264,7 @@ export const QuizSection = () => {
 
  return (
    <section className="relative bg-[#FF4B26] text-white lg:py-20 py-5 overflow-hidden" id="quiz">
-     <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
+     <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
        <Image
          src="/icons/note1.svg"
          alt="Musical note"
@@ -385,7 +418,7 @@ export const QuizSection = () => {
                <Button
                  onClick={handleReset}
                  variant="primary"
-                 className="bg-[#FF4B26] text-white px-4 py-2 rounded-full hover:bg-[#FF0000] transition-all"
+                 className="bg-[#FF4B26] text-white px-4 py-2 rounded-full hover:bg-[#FF0000] transition-all z-50"
                >
                  Начать заново
                </Button>
@@ -394,7 +427,7 @@ export const QuizSection = () => {
 
            <AnimatePresence mode="wait">
              <motion.div
-               key={`${currentStep}-${currentQuestion}`}
+               key={`${currentStep}-${currentQuestionIndex}`}
                initial={{ opacity: 0, y: 20 }}
                animate={{ opacity: 1, y: 0 }}
                exit={{ opacity: 0, y: -20 }}
