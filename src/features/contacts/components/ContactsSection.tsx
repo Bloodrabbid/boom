@@ -171,7 +171,7 @@ const ContactsSection = () => {
               {/* Форма и контакты */}
               <div className="w-full lg:w-1/2 flex flex-col items-center">
                 {/* Логотип и название */}
-                <div className="mb-2 text-center">
+                <div className="mb-8 text-center">
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <DrumLogo className="mt-12 -mb-[12px] w-[60px] h-[60px] md:w-[85px] md:h-[85px] lg:w-[115px] lg:h-[115px]" />
                     <h1 className="-mb-[68px] md:-mb-[68px] lg:-mb-[68px] text-[60px] md:text-[85px] lg:text-[115px] font-normal text-white uppercase font-[DOCKERONE]">БУМ</h1>
@@ -214,10 +214,11 @@ const ContactsSection = () => {
                         width={24}
                         height={24}
                         className="w-[36px] h-[36px] md:w-[48px] md:h-[48px]"
-                        style={{ filter: 'invert(0)' }}
+                        style={{filter: 'invert(0)'}}
                     />
                   </a>
-                  <a href="https://wa.me/79992738008?text=Привет%21%20Хочу%20играть%20на%20барабанах%21" className="hover:opacity-80">
+                  <a href="https://wa.me/79992738008?text=Привет%21%20Хочу%20играть%20на%20барабанах%21"
+                     className="hover:opacity-80">
                     <Image
                         src="/icons/whatsapp.svg"
                         alt="WhatsApp"
@@ -235,6 +236,16 @@ const ContactsSection = () => {
                         height={24}
                         className="w-[36px] h-[36px] md:w-[48px] md:h-[48px]"
                         style={{filter: 'invert(0)'}}
+                    />
+                  </a>
+                  <a href="https://go.2gis.com/3P17i" className="hover:opacity-80">
+                    <Image
+                        src="/icons/maps.svg"
+                        alt="Phone"
+                        width={24}
+                        height={24}
+                        className="w-[36px] h-[36px] md:w-[48px] md:h-[48px]"
+
                     />
                   </a>
                 </div>
