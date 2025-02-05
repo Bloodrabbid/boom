@@ -225,15 +225,50 @@ export const QuizSection = () => {
                 const currentQuestions = getCurrentQuestions();
 
                 // Если все вопросы пройдены — отображаем финальное сообщение
+                // Вместо старого финального сообщения заменяем условие:
                 if (currentQuestionIndex >= currentQuestions.length) {
                     return (
                         <div className="space-y-4 md:space-y-6 max-w-[600px] mx-auto z-50">
-                            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-center mb-4 md:mb-6 z-50">
-                                Спасибо за ваши ответы! Мы подобрали для вас идеальную программу обучения и свяжемся с вами в ближайшее время.
-                            </h3>
+                            <div className="relative">
+
+                                <h2 className="font-raleway font-extrabold text-[48px] leading-[75px] text-yellow-400 text-center mb-4">
+                                    Ты крут!
+                                </h2>
+                                <p className="font-raleway font-extrabold text-[30px] leading-[38px] text-white text-center max-w-[548px] mx-auto mb-8">
+                                    Запишись на пробный урок
+                                    или задай вопросы о занятиях
+                                </p>
+                                <div className="flex justify-center gap-[20px] w-[217px] mx-auto">
+                                    <a href="https://t.me/BOOMDRUMS" className="hover:opacity-80">
+                                        <Image
+                                            src="/icons/telegram.svg"
+                                            alt="Telegram"
+                                            width={48}
+                                            height={48}
+                                        />
+                                    </a>
+                                    <a href="https://wa.me/79992738008?text=Привет%21%20Хочу%20играть%20на%20барабанах%21" className="hover:opacity-80">
+                                        <Image
+                                            src="/icons/whatsapp.svg"
+                                            alt="WhatsApp"
+                                            width={48}
+                                            height={48}
+                                        />
+                                    </a>
+                                    <a href="tel:+79992738008" className="hover:opacity-80">
+                                        <Image
+                                            src="/icons/phone.svg"
+                                            alt="Phone"
+                                            width={48}
+                                            height={48}
+                                        />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     );
                 }
+
 
                 const question = currentQuestions[currentQuestionIndex];
                 return (

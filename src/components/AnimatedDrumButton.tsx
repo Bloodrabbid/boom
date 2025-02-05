@@ -74,7 +74,7 @@ const AnimatedDrumButton: React.FC = () => {
                   </p>
 
                   <div className="flex justify-center gap-[20px] w-[217px] mx-auto">
-                    <a href="#" className="hover:opacity-80">
+                    <a href="https://t.me/BOOMDRUMS" className="hover:opacity-80">
                       <Image
                         src="/icons/telegram.svg"
                         alt="Telegram"
@@ -82,7 +82,7 @@ const AnimatedDrumButton: React.FC = () => {
                       height={48}
                       />
                     </a>
-                    <a href="#" className="hover:opacity-80">
+                    <a href="https://wa.me/79992738008?text=Привет%21%20Хочу%20играть%20на%20барабанах%21" className="hover:opacity-80">
                       <Image
                         src="/icons/whatsapp.svg"
                         alt="WhatsApp"
@@ -90,7 +90,7 @@ const AnimatedDrumButton: React.FC = () => {
                       height={48}
                       />
                     </a>
-                    <a href="#" className="hover:opacity-80">
+                    <a href="tel:+79992738008" className="hover:opacity-80">
                       <Image
                         src="/icons/phone.svg"
                         alt="Phone"
