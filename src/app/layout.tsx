@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { AdminButton } from '@/shared/components/AdminButton';
 import Header from '@/shared/components/Header';
 import AnimatedDrumButton from '@/components/AnimatedDrumButton';
+import YandexMetrika from '@/components/YandexMetrika';
 
 const raleway = Raleway({ 
   subsets: ['latin', 'cyrillic'],
@@ -29,6 +30,7 @@ export default function RootLayout({
         <main>{children}</main>
         {/*<AdminButton />*/}
         <AnimatedDrumButton />
+        <YandexMetrika />
       </body>
     </html>
   );

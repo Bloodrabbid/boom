@@ -276,7 +276,7 @@ const ContactsSection = () => {
               </nav>
               <div className="flex flex-col gap-2">
                 <p className="text-white font-raleway font-medium text-lg md:text-2xl">
-                  Хабаровск, ул. Истоимина, 39а
+                  Хабаровск, ул. Истомина, 39а
                 </p>
                 <p className="text-white font-raleway font-medium text-lg md:text-2xl">
                   Ежедневно с 10:00-22:00
