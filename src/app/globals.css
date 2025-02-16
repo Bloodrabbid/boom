@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@/shared/styles/variables.css';
+@import '@/shared/styles/animations.css';
+@import '@/features/header/styles/header.css';
+@import '@/features/results/styles/swiper.css';
+@import '@/features/reviews/styles/swiper.css';
+@import '@/features/about/styles/photos.css';
+
 @font-face {
   font-family: 'DOCKERONE';
   src: url('/fonts/docker-one.ttf') format('truetype');
@@ -10,269 +17,31 @@
   font-display: swap;
 }
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  --primary: #FF4B26;
-  --primary-dark: #FF3300;
-  --primary-foreground: 210 40% 98%;
-  --secondary: #FF3300;
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --font-handwriting: 'Raleway', cursive;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer base {
   html {
-    scroll-behavior: smooth;
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-raleway;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
   }
 }
 
-/* Reviews Swiper Styles */
-.review-swiper {
-  padding-bottom: 3rem !important;
-  height: auto !important;
-}
-
-.review-swiper .swiper-slide {
-  height: auto !important;
-  padding: 1rem;
-}
-
-.review-swiper .swiper-pagination {
-  bottom: 0 !important;
-}
-
-.review-swiper .swiper-pagination-bullet {
-  background: white !important;
-  opacity: 0.5;
-}
-
-.review-swiper .swiper-pagination-bullet-active {
-  opacity: 1;
-}
-
-/* Results Swiper Styles */
-.results-swiper {
-  padding: 1.5rem !important;
-}
-
-.results-swiper .swiper-slide {
-  width: 105% !important;
-}
-
-@media (min-width: 768px) {
-  .results-swiper {
-    padding: 5rem !important;
-  }
-  
-  .results-swiper .swiper-slide {
-    width: 120% !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .results-swiper {
-    padding: 2rem 4rem !important;
-  }
-  
-  .results-swiper .swiper-slide {
-    width: 100% !important;
-  }
-}
-
-.results-swiper .swiper-button-next::after,
-.results-swiper .swiper-button-prev::after {
-  font-size: 40px !important;
-  color: white;
-}
-
-@media (min-width: 768px) {
-  .results-swiper .swiper-button-next::after,
-  .results-swiper .swiper-button-prev::after {
-    font-size: 57px !important;
-  }
-  
-}
-
-@media (min-width: 768px) {
-  .results-swiper .swiper-button-next {
-    right: -5rem !important;
-  }
-
-  .results-swiper .swiper-button-prev {
-    left: -5rem !important;
-  }
-}
-
-@media (min-width: 1024px) {
-  .results-swiper .swiper-button-next::after,
-  .results-swiper .swiper-button-prev::after {
-    font-size: 75px !important;
-  }
-}
-
-.results-swiper .swiper-button-next {
-  right: -1rem !important;
-}
-
-.results-swiper .swiper-button-prev {
-  left: -1rem !important;
-}
-
-/* Polaroid styles */
-.polaroid {
-  background: white;
-  padding: 1rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-              0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-}
-
-.polaroid:hover {
-  transform: scale(1.02) rotate(0deg) !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-              0 4px 6px -2px rgba(0, 0, 0, 0.05);
-}
-
-.font-handwriting {
-  font-family: var(--font-handwriting);
-}
-
-/* Photo carousel styles */
-.photo-swiper {
-  padding: 2rem 0;
-}
-
-.swiper-pagination-bullets.swiper-pagination-horizontal {
-  bottom: -25px !important;
-}
-
-.photo-swiper .swiper-pagination-bullet {
-  background: white;
-  opacity: 0.5;
-}
-
-.photo-swiper .swiper-pagination-bullet-active {
-  opacity: 1;
-}
-
-/* Header styles */
-.app-header {
-  @apply fixed top-0 left-0 right-0 z-50 shadow-md transition-all duration-300;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.app-header.header-hidden {
-  transform: translateY(-100%);
-}
-
-.app-header .container {
-  @apply flex justify-between items-center py-4 px-5;
-}
-
-.app-header .logo {
-  @apply text-2xl font-bold text-white flex items-center;
-}
-
-.app-header nav ul {
-  @apply flex-col md:flex-row list-none m-0 p-0;
-}
-
-.app-header nav ul li {
-  @apply mb-4 md:mb-0 md:ml-8;
-}
-
-.app-header nav ul li a {
-  @apply text-white no-underline font-medium transition-colors duration-300;
-}
-
-.app-header nav ul li a:hover {
-  @apply text-primary;
-}
-
-.app-header .burger {
-  @apply block md:hidden cursor-pointer w-[30px] h-[24px] relative;
-}
-
-.app-header .burger .line {
-  @apply w-full h-[3px] bg-white absolute transition-all duration-300;
-}
-
-.app-header .burger .line:nth-child(1) { top: 0; }
-.app-header .burger .line:nth-child(2) { top: 50%; transform: translateY(-50%); }
-.app-header .burger .line:nth-child(3) { bottom: 0; }
-
-.app-header.menu-open .burger .line:nth-child(1) {
-  @apply transform translate-y-[10.5px] rotate-[65deg] w-4/5 left-0;
-}
-
-.app-header.menu-open .burger .line:nth-child(2) {
-  @apply opacity-0;
-}
-
-.app-header.menu-open .burger .line:nth-child(3) {
-  @apply transform -translate-y-[10.5px] rotate-[115deg] w-4/5 left-[20%];
-}
-
-@media (max-width: 768px) {
-  .app-header {
-    @apply h-auto;
-  }
-
-  .app-header.menu-open {
-    @apply h-auto;
-  }
-
-  .app-header .container {
-    @apply flex-wrap;
-  }
-
-  .app-header nav {
-    @apply w-full order-3;
-  }
-
-  .app-header nav ul {
-    @apply flex-col items-end py-5;
-  }
-
-  .app-header nav ul li {
-    @apply my-[10px] mx-0 opacity-100 translate-x-0;
-  }
-
-  .app-header nav ul li a {
-    @apply text-lg;
+@layer components {
+  .font-handwriting {
+    font-family: var(--font-handwriting);
   }
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
-  100% {
-    transform: scale(1);
-  }
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
 }

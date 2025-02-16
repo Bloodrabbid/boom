@@ -18,8 +18,9 @@ const config: Config = {
       '2xl': '1536px',
     },
     fontFamily: {
-      sans: ['var(--font-raleway)'],
-      raleway: ['var(--font-raleway)'],
+      sans: ['Raleway', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      raleway: ['Raleway', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      handwriting: ['DOCKERONE', 'cursive'],
     },
     extend: {
       backgroundImage: {
@@ -36,16 +37,12 @@ const config: Config = {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
-        background: 'hsl(var(--background))',
+        background: 'var(--background)',
         foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: '#FF4B26',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
+        primary: 'var(--primary)',
+        'primary-dark': 'var(--primary-dark)',
+        secondary: 'var(--secondary)',
+        text: 'var(--text)',
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',

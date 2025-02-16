@@ -59,13 +59,10 @@ const DrumSVG: React.FC = () => (
           strokeLinejoin="round"
           className="w-16 h-16 text-white"
       >
-        {/* Основной цилиндр барабана */}
         <ellipse cx="12" cy="9" rx="10" ry="5" />
-        {/* Стойки */}
         <line x1="7" y1="13.4" x2="7" y2="21.3" />
         <line x1="12" y1="14" x2="12" y2="22" />
         <line x1="17" y1="13.4" x2="17" y2="21.3" />
-        {/* Нижняя часть барабана */}
         <path d="M2 9v8a10 5 0 0 0 20 0V9" />
       </svg>
 
@@ -90,4 +87,4 @@ const DrumSVG: React.FC = () => (
     </div>
 );
 
-export default DrumSVG;
+export default DrumSVG; 

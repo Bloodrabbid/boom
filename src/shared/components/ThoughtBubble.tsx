@@ -89,4 +89,4 @@ const ThoughtBubble: React.FC<ThoughtBubbleProps> = ({
   );
 };
 
-export default ThoughtBubble;
+export default ThoughtBubble; 

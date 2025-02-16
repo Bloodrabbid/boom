@@ -8,7 +8,7 @@ import { defaultStickers } from '@/config/stickers';
 import { transitions } from '@/config/transitions';
 import TornPaper from '@/shared/components/TornPaper';
 import SectionTitle from '@/shared/components/SectionTitle';
-import Photos from '@/components/Photos';
+import Photos from '@/features/about/components/Photos';
 import { aboutStyles } from '../styles';
 import { aboutConfig } from '../config';
 

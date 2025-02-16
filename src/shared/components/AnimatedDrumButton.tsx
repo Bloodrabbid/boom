@@ -78,24 +78,24 @@ const AnimatedDrumButton: React.FC = () => {
                       <Image
                         src="/icons/telegram.svg"
                         alt="Telegram"
-                      width={48}
-                      height={48}
+                        width={48}
+                        height={48}
                       />
                     </a>
                     <a href="https://wa.me/79992738008?text=Привет%21%20Хочу%20играть%20на%20барабанах%21" className="hover:opacity-80">
                       <Image
                         src="/icons/whatsapp.svg"
                         alt="WhatsApp"
-                      width={48}
-                      height={48}
+                        width={48}
+                        height={48}
                       />
                     </a>
                     <a href="tel:+79992738008" className="hover:opacity-80">
                       <Image
                         src="/icons/phone.svg"
                         alt="Phone"
-                      width={48}
-                      height={48}
+                        width={48}
+                        height={48}
                       />
                     </a>
                   </div>
@@ -108,4 +108,4 @@ const AnimatedDrumButton: React.FC = () => {
   );
 };
 
-export default AnimatedDrumButton;
+export default AnimatedDrumButton; 

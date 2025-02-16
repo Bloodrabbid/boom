@@ -3,12 +3,12 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { AdminButton } from '@/shared/components/AdminButton';
 import Header from '@/shared/components/Header';
-import AnimatedDrumButton from '@/components/AnimatedDrumButton';
-import YandexMetrika from '@/components/YandexMetrika';
+import AnimatedDrumButton from '@/shared/components/AnimatedDrumButton';
+import YandexMetrika from '@/shared/components/YandexMetrika';
 
 const raleway = Raleway({ 
   subsets: ['latin', 'cyrillic'],
-  weight: ['400', '500', '700', '800'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-raleway',
   display: 'swap',
 });
@@ -24,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru" className={`${raleway.variable}`}>
-      <body className={`${raleway.className} font-sans`}>
+    <html lang="ru">
+      <body className={`${raleway.className}`}>
         <Header />
         <main>{children}</main>
         {/*<AdminButton />*/}

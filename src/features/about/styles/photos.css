@@ -1,0 +1,46 @@
+/* Photo Swiper Styles */
+.photo-swiper {
+  padding: 2rem 0;
+}
+
+.photo-swiper .swiper-slide {
+  @apply h-auto p-4;
+}
+
+.photo-swiper .swiper-pagination {
+  @apply bottom-0;
+}
+
+/* Polaroid styles */
+.polaroid {
+  background: white;
+  padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: scale(1.02) rotate(0deg) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Подпись к фотографии */
+.polaroid p {
+  @apply text-black text-center font-raleway text-lg mt-2;
+}
+
+/* Common Swiper Styles */
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: -25px !important;
+}
+
+.photo-swiper .swiper-pagination-bullet {
+  background: white;
+  opacity: 0.5;
+}
+
+.photo-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+} 
